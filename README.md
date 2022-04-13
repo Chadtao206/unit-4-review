@@ -18,9 +18,8 @@
 Properties can be accessed directly and assigned new values by traversing the DOM tree like a normal object e.g. -
 ```
 document.body.style.background = "purple";
-
-^ this will change the css property 'background' of the body element inside our HTML document to "purple", and the browser will update/repaint the display accordingly.
 ```
+^ this will change the css property 'background' of the body element inside our HTML document to "purple", and the browser will update/repaint the display accordingly.
  
 ### Selector Methods
 
@@ -33,18 +32,23 @@ document.querySelector("#bar") - Selects the first element with the id 'bar' on 
 
 #### [querySelectorAll](https://www.w3schools.com/jsref/met_document_queryselectorall.asp)
 ```
-document.querySelectorAll("div") - Selects ALL <div> elements on the page, returns them in a node list (indexed/iterable like an array, but without array methods)
-document.querySelectorAll(".foo") - Selects All elements with the class name 'foo' on the page, returns them in a node list also
+document.querySelectorAll("div") - Selects ALL <div> elements on the page, 
+returns them in a node list (indexed/iterable like an array, but without array methods)
+
+document.querySelectorAll(".foo") - Selects All elements with the class name 'foo' on the page, 
+returns them in a node list also
 ```
 
 #### [getElementById](https://www.w3schools.com/jsref/met_document_getelementbyid.asp)
 ```
-document.getElementById("bar") - equivalent to document.querySelector("#bar") - Selects the first element with the id 'bar' on the page
+document.getElementById("bar") - equivalent to document.querySelector("#bar"),
+Selects the first element with the id 'bar' on the page
 ```
 
 #### [getElementsByClassName](https://www.w3schools.com/jsref/met_document_getelementsbyclassname.asp)
 ```
-document.getElementsByClassName("foo") - equivalent to document.querySelectorAll(".foo") - Selects All elements with the class name 'foo' on the page, returns them in a node list also
+document.getElementsByClassName("foo") - equivalent to document.querySelectorAll(".foo"),
+Selects All elements with the class name 'foo' on the page, returns them in a node list also
 ```
 
 #### A couple more that you can explore
