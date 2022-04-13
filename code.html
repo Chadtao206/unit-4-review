@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    h1.changed {
+      color: red;
+      font-weight: 100;
+      font-size: 200px;
+    }
+
+    .outer {
+        width: 100vw;
+        height: fit-content;
+        padding: 100px;
+        background: blue;
+    }
+
+    .middle {
+        height: 500px;
+        padding: 50px;
+        background: red;
+    }
+
+    .inner {
+        height: 200px;
+        width: 200px;
+        background: gold;
+    }
+
+  </style>
+  <body>
+    <h1 id="myh1" asdf="asdf">MY H1</h1>
+    <form action="./index.html">
+        <input type="text" />
+        <textarea name="" id="" cols="30" rows="10"></textarea>
+        <button type="submit">CLICK TO SUBMIT FORM</button>
+    </form>
+
+    <div class="outer">
+        OUTER
+        <div class="middle">
+            MIDDLE
+            <div class="inner">
+                INNER
+            </div>
+        </div>
+    </div>
+  </body>
+  <script>
+    //   alert("PAGE JUST STARTED!")
+    // WEB APIs
+
+    // window object contains EVERYTHING in the webAPI
+    //reference methods or properties by doing window.somethign
+
+    // var obj = {
+    //     fontWeight: 100,
+    //     font-weight: 200
+    // }
+    //document
+    // event listeners(action-string, function(){})
+    document.addEventListener("click", function () {
+      // adding a classname 'changed' so css for h1 with class changed is applied
+      // qs("h1").classList.add("changed");
+      // qs("h1").style.color = "red";
+      // qs("h1").style.fontSize = "200px";
+      // qs("h1").style.fontWeight = 100;
+
+      // qs("h1").setAttribute("style", "color: blue; font-size: 200px; font-weight: 100;");
+      qs("h1").setAttribute("data-name", "foo");
+      qs("h1").setAttribute("data-age", "21");
+      qs("h1").setAttribute("data-state", "CA");
+    });
+    //document
+    var data = {
+      name: "foo",
+      location: "bar",
+    };
+
+    var stringData = JSON.stringify(data);
+
+    console.log("data", data)
+    console.log("dataString", stringData)
+    // document.addEventListener();
+
+    //utility function to help you with dom manipulation
+    //function to select an element using querySeelector
+
+    function qs(tag) {
+      return document.querySelector(tag);
+    }
+
+    var h1 = qs("#myh1"); //equiv of document.querySelector("h1")
+    // window.addEventListener("resize", function(){
+    //     alert("RESIZED")
+    // })
+    console.dir(h1);
+
+    function fun(customMessage) {
+      console.log("this");
+      console.log("is");
+      console.log("fun!");
+      if (customMessage)
+        console.log("HEY THERE's AN EASTER EGG!", customMessage);
+    }
+    
+
+
+    fun();
+    fun("some params this time!");
+
+
+    //event prevent default, and bubbling
+
+    qs("form").addEventListener("submit", function(event){
+        // event.preventDefault();
+        alert("YOU SUBMITTED");
+    });
+
+    qs("button").addEventListener("click", function(event){
+        event.stopPropagation()
+        alert("THIS IS FROM CLICK EVENT LISTENER!");
+    })
+
+    qs(".outer").addEventListener("click", function(event){
+        event.target.style.background = "purple"
+    });
+
+    qs(".inner").addEventListener("click", function(event){
+        event.stopPropagation();
+        event.currentTarget.style.background = "green"
+    });
+    
+    qs(".middle").addEventListener("click", function(event){
+        event.currentTarget.style.background = "pink"
+        // event.stopPropagation();
+    })
+  </script>
+</html>
